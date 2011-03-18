@@ -6,7 +6,7 @@ scriptName = "SL.Utility.Memory";
 scriptVersion = "1";
 
 function onEnable() {
-    helper.registerEvent(Event.Type.PLAYER_COMMAND, Event.Priority.Normal, "onCommand");
+    helper.registerEvent(Event.Type.PLAYER_COMMAND_PREPROCESS, Event.Priority.Normal, "onCommand");
 }
 
 function onDisable() { }
