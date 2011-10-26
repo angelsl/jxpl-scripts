@@ -1,8 +1,8 @@
 from org.bukkit.event import Event
 from java.util.logging import Level
 
-scriptName = "PyExampleScript"
-scriptVersion = "1"
+SCRIPT_NAME = "PyExampleScript"
+SCRIPT_VERSION = "1"
 HELPER_VARIABLE_NAME = "helper"
 PLUGIN_VARIABLE_NAME = "plugin"
 SERVER_VARIABLE_NAME = "server"

@@ -3,8 +3,8 @@ importPackage(java.util.logging);
 /* Here we define the script name & version. 
  * This is REQUIRED! 
  */
-scriptName = "JsExampleScript";
-scriptVersion = "1";
+SCRIPT_NAME = "JsExampleScript";
+SCRIPT_VERSION = "1";
 // New: change the variable name for the 3 preset variables.
 // If not specified, the values below are used as default.
 HELPER_VARIABLE_NAME = "helper"

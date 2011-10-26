@@ -2,8 +2,8 @@ importPackage(org.bukkit.event);
 importPackage(java.lang);
 importPackage(java.text);
 importPackage(java.math);
-scriptName = "SL.Utility.Memory";
-scriptVersion = "1";
+SCRIPT_NAME = "SL.Utility.Memory";
+SCRIPT_VERSION = "1";
 
 function onEnable() {
     helper.registerEvent(Event.Type.PLAYER_COMMAND_PREPROCESS, Event.Priority.Normal, "onCommand");

@@ -2,8 +2,8 @@
 
 require 'java'
 
-scriptName = "RbExampleScript"
-scriptVersion = "1"
+SCRIPT_NAME = "RbExampleScript"
+SCRIPT_VERSION = "1"
 HELPER_VARIABLE_NAME = "helper"
 PLUGIN_VARIABLE_NAME = "plugin"
 SERVER_VARIABLE_NAME = "server"

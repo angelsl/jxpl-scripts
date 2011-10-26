@@ -2,8 +2,8 @@ importPackage(org.bukkit.event);
 importPackage(java.lang);
 importPackage(java.text);
 importPackage(java.math);
-scriptName = "jxpl.command";
-scriptVersion = "1";
+SCRIPT_NAME = "jxpl.command";
+SCRIPT_VERSION = "1";
 
 function onEnable() {
     helper.registerEvent(Event.Type.PLAYER_COMMAND_PREPROCESS, Event.Priority.Normal, "onCommand");
