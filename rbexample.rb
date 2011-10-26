@@ -2,8 +2,13 @@
 
 require 'java'
 
-SCRIPT_NAME = "RbExampleScript"
-SCRIPT_VERSION = "1"
+SCRIPT_PDF = {
+    "name" => "rbexample", # SHOULD BE THE SCRIPT FILENAME WITHOUT EXTENSION. Or things may break.
+    "version" => "3",
+    "commands" => {
+            "rbes" => { "description" => "rbexample Example Command", "usage" => "/<command>" }
+        }
+    }
 HELPER_VARIABLE_NAME = "helper"
 PLUGIN_VARIABLE_NAME = "plugin"
 SERVER_VARIABLE_NAME = "server"
@@ -12,18 +17,21 @@ Event = org.bukkit.event.Event
 Level = java.util.logging.Level
 
 def onEnable()
-  $helper.log(Level::INFO, "RbExampleScript loaded!")
+  $helper.log(Level::INFO, "rbexample loaded!")
   $helper.registerEvent(Event::Type::PLAYER_JOIN, Event::Priority::Lowest, "onPlayerJoin")
 end
 
 def onDisable()
-  $helper.log(Level::INFO, "RbExampleScript unloaded!")
+  $helper.log(Level::INFO, "rbexample unloaded!")
 end
 
 def onCommand(sender, command, label, args)
-  return False
+  if label.downcase() == "rbes"
+    sender.sendMessage("You called /rbes.")
+  end
+  return True
 end
 
 def onPlayerJoin(type, args)
-  $server.broadcastMessage("RbExampleScript says hi, " + args.getPlayer().getName())
+  args.getPlayer().sendMessage("rbexample says hi, " + args.getPlayer().getName())
 end
