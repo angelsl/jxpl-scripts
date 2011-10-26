@@ -14,15 +14,14 @@ function onEnable() {}
 
 function onDisable() {}
 
-function onCommand(p, command, commandLabel, args)
+function onCommand(p, command, cl, args)
 {
-    switch(commandLabel.toLowerCase())
-    {
-        case "u.mem":
+    var clu = cl.toLowerCase();
+    if(clu == "u.mem") {
             var maxMem = Runtime.getRuntime().totalMemory();
             var memUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
             p.sendMessage("Memory used: " + getHumanReadable(memUsed) + " / " + getHumanReadable(maxMem) + " / " + getHumanReadable(Runtime.getRuntime().maxMemory()));
-            p.sendMessage("Players online: " + server.getOnlinePlayers().length);\
+            p.sendMessage("Players online: " + server.getOnlinePlayers().length);
     }
     return true;
 }

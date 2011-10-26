@@ -32,7 +32,7 @@ function onDisable() { helper.log(Level.INFO, "ExampleScript unloaded!"); }
 /* Note that method names are case-sensitive */
 function onPlayerJoin(type, eventArgs)
 {
-    server.broadcastMessage("JsExampleScript says hi, " + eventArgs.getPlayer().getName());
+    eventArgs.getPlayer().sendMessage("JsExampleScript says hi, " + eventArgs.getPlayer().getName());
 }
 
 /* Here is how you handle Commands */
