@@ -4,7 +4,7 @@ importPackage(java.util.logging);
  * This is REQUIRED! 
  */
 SCRIPT_PDF = {
-	"name" : "JsExampleScript",
+	"name" : "jsexample", // SHOULD BE THE SCRIPT FILENAME WITHOUT EXTENSION. Or things may break.
 	"version" : "3",
 	"commands" : {
 			"jses" : { "description" : "JsExampleScript Example Command", "usage" : "/<command>" }
@@ -21,18 +21,18 @@ SERVER_VARIABLE_NAME = "server";
  * These aren't required, but then exceptions would occur when they are called.
  */
 function onEnable() { 
-    helper.log(Level.INFO, "JsExampleScript loaded!"); 
+    helper.log(Level.INFO, "jsexample loaded!"); 
     /* And here is how you register/handle events. */
     helper.registerEvent(Event.Type.PLAYER_JOIN, Event.Priority.Lowest, "onPlayerJoin");
     /* And so on. Refer to Bukkit docs for event types and priorities */
 }
-function onDisable() { helper.log(Level.INFO, "ExampleScript unloaded!"); }
+function onDisable() { helper.log(Level.INFO, "jsexample unloaded!"); }
 
 /* Here is how you handle Events */
 /* Note that method names are case-sensitive */
 function onPlayerJoin(type, eventArgs)
 {
-    eventArgs.getPlayer().sendMessage("JsExampleScript says hi, " + eventArgs.getPlayer().getName());
+    eventArgs.getPlayer().sendMessage("jsexample says hi, " + eventArgs.getPlayer().getName());
 }
 
 /* Here is how you handle Commands */
