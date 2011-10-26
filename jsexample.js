@@ -40,14 +40,11 @@ function onPlayerJoin(type, eventArgs)
 /* This method is the same as an onCommand method for normal plugins; refer to Bukkit docs */
 function onCommand(/*CommandSender*/ sender, /*Command*/ command, /*String*/ commandLabel, /*String[]*/ args)
 {
-	switch(commandLabel.toLowerCase())
-	{
-		case "jses":
-			sender.sendMessage("You called /jses.");
-			return true; // Return true if valid command; false otherwise
-		default:
-			return false;
-	}
+	var clu = commandLabel.toLowerCase()
+    if(clu == "jses")
+        sender.sendMessage("You called /jses.");
+    return true; // Return true if valid command; false otherwise
+
 }
 /* Final remarks:
  * Never try to access helper, plugin or server outside a function! They are only defined immediately before enable is called, so if you try to access them, your script will not load.
