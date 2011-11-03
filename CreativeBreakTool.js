@@ -29,6 +29,6 @@ function onBlockBreak(type, eventArgs)
         try {
             var block = eventArgs.getBlock();
             net.minecraft.server.Block.byId[block.getTypeId()].b(block.getWorld().getHandle(), block.getX(), block.getY(), block.getZ(), eventArgs.getPlayer().getHandle());
-        } catch(e) { helper.log(Level.INFO, "Error while manually calling block interact. Are you on CraftBukkit?", e); }
+        } catch(e) { helper.log(Level.INFO, "Error while manually calling block interact. Are you on CraftBukkit? " + e.rhinoException); }
     }
 }
