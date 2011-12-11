@@ -18,6 +18,7 @@ SCRIPT_PDF = {
 
 function onEnable() {
     helper.registerEvent(Event.Type.BLOCK_BREAK, Event.Priority.High, "onBlockBreak");
+    helper.registerEvent(Event.Type.PLAYER_INTERACT, Event.Priority.High, "onPlayerInteract");
 }
 
 function onDisable() {}
@@ -26,9 +27,16 @@ function onBlockBreak(type, eventArgs)
 {
     if(eventArgs.getPlayer().getGameMode().getValue() == 1 && VALID_ITEMS.indexOf(eventArgs.getPlayer().getItemInHand().getTypeId()) == -1) {
         eventArgs.setCancelled(true);
+    }
+}
+
+function onPlayerInteract(type, eventArgs)
+{
+    if(eventArgs.getAction() == Packages.org.bukkit.event.block.Action.LEFT_CLICK_BLOCK && eventArgs.getPlayer().getGameMode().getValue() == 1 && VALID_ITEMS.indexOf(eventArgs.getPlayer().getItemInHand().getTypeId()) == -1) {
         try {
-            var block = eventArgs.getBlock();
+            var block = eventArgs.getClickedBlock();
             net.minecraft.server.Block.byId[block.getTypeId()].b(block.getWorld().getHandle(), block.getX(), block.getY(), block.getZ(), eventArgs.getPlayer().getHandle());
+            block.getWorld().getHandle().douseFire(null, block.getX(), block.getY(), block.getZ(), Packages.org.bukkit.craftbukkit.block.CraftBlock.blockFaceToNotch(eventArgs.getBlockFace()));
         } catch(e) { helper.log(Level.INFO, "Error while manually calling block interact. Are you on CraftBukkit? " + e.rhinoException); }
     }
 }
