@@ -31,7 +31,7 @@ function onChat(type, ea)
                 var groupArray = java.lang.reflect.Array.newInstance(pman.getGroup(FROM_RANK).getClass(), 1);
                 groupArray[0] = pman.getGroup(TO_RANK);
                 puser.setGroups(groupArray);
-                ea.getPlayer().sendMessage("[\u00A77Grey\u00A7flist] Successfully greylisted; your rank is now \u00A74" + TO_RANK + "\u00A7f.");
+                ea.getPlayer().sendMessage("[\u00A77Greylist\u00A7f] Successfully greylisted; you are now in group \u00A74" + TO_RANK + "\u00A7f.");
                 ea.setCancelled(true);
             }
         } catch(e) {

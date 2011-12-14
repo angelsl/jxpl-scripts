@@ -27,6 +27,7 @@ function onBlockBreak(type, eventArgs)
 {
     if(eventArgs.getPlayer().getGameMode().getValue() == 1 && VALID_ITEMS.indexOf(eventArgs.getPlayer().getItemInHand().getTypeId()) == -1) {
         eventArgs.setCancelled(true);
+        eventArgs.getPlayer().sendMessage("\u00A74Please equip a stick or any pickaxe, axe or shovel to destroy blocks.");
     }
 }
 
