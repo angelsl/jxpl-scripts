@@ -16,18 +16,20 @@ SCRIPT_PDF = {
     };
 
 
-function onEnable() {
+function onLoad() {
     helper.registerEvent(Event.Type.BLOCK_BREAK, Event.Priority.High, "onBlockBreak");
     helper.registerEvent(Event.Type.PLAYER_INTERACT, Event.Priority.High, "onPlayerInteract");
 }
 
+function onEnable() {}
 function onDisable() {}
 
 function onBlockBreak(type, eventArgs)
 {
     if(eventArgs.getPlayer().getGameMode().getValue() == 1 && VALID_ITEMS.indexOf(eventArgs.getPlayer().getItemInHand().getTypeId()) == -1) {
         eventArgs.setCancelled(true);
-        eventArgs.getPlayer().sendMessage("\u00A74Please equip a stick or any pickaxe, axe or shovel to destroy blocks.");
+        eventArgs.getBlock().getState().update();
+        eventArgs.getPlayer().sendMessage("\u00A74Please equip a stick, pick/axe or shovel to break blocks.");
     }
 }
 
