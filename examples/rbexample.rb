@@ -2,16 +2,16 @@
 
 require 'java'
 
-SCRIPT_PDF = {
+$SCRIPT_PDF = {
     "name" => "rbexample", # SHOULD BE THE SCRIPT FILENAME WITHOUT EXTENSION. Or things may break.
     "version" => "3",
     "commands" => {
             "rbes" => { "description" => "rbexample Example Command", "usage" => "/<command>" }
         }
     }
-HELPER_VARIABLE_NAME = "helper"
-PLUGIN_VARIABLE_NAME = "plugin"
-SERVER_VARIABLE_NAME = "server"
+$HELPER_VARIABLE_NAME = "helper"
+$PLUGIN_VARIABLE_NAME = "plugin"
+$SERVER_VARIABLE_NAME = "server"
 
 Event = org.bukkit.event.Event
 Level = java.util.logging.Level
@@ -29,7 +29,7 @@ def onCommand(sender, command, label, args)
   if label.downcase() == "rbes"
     sender.sendMessage("You called /rbes.")
   end
-  return True
+  return true
 end
 
 def onPlayerJoin(type, args)
