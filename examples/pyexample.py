@@ -1,5 +1,6 @@
-from org.bukkit.event import Event
+from org.bukkit.event import EventPriority
 from java.util.logging import Level
+from org.bukkit.event.player import PlayerJoinEvent
 
 SCRIPT_PDF = {
     "name" : "pyexample", # SHOULD BE THE SCRIPT FILENAME WITHOUT EXTENSION. Or things may break.
@@ -14,12 +15,12 @@ SERVER_VARIABLE_NAME = "server"
 
 def onEnable():
     helper.log(Level.INFO, "pyexample loaded!")
-    helper.registerEvent(Event.Type.PLAYER_JOIN, Event.Priority.Lowest, "onPlayerJoin")
+    helper.registerEvent(PlayerJoinEvent, EventPriority.LOWEST, "onPlayerJoin")
 
 def onDisable():
     helper.log(Level.INFO, "pyexample unloaded!")
 
-def onPlayerJoin(type, args):
+def onPlayerJoin(args):
     args.getPlayer().sendMessage("pyexample says hi, " + args.getPlayer().getName())
     
 def onCommand(sender, command, label, args):

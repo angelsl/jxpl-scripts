@@ -13,12 +13,13 @@ $HELPER_VARIABLE_NAME = "helper"
 $PLUGIN_VARIABLE_NAME = "plugin"
 $SERVER_VARIABLE_NAME = "server"
 
-Event = org.bukkit.event.Event
+PlayerJoinEvent = org.bukkit.event.player.PlayerJoinEvent
+EventPriority = org.bukkit.event.EventPriority
 Level = java.util.logging.Level
 
 def onEnable()
   $helper.log(Level::INFO, "rbexample loaded!")
-  $helper.registerEvent(Event::Type::PLAYER_JOIN, Event::Priority::Lowest, "onPlayerJoin")
+  $helper.registerEvent(PlayerJoinEvent.java_class, EventPriority::LOWEST, "onPlayerJoin")
 end
 
 def onDisable()
@@ -32,6 +33,6 @@ def onCommand(sender, command, label, args)
   return true
 end
 
-def onPlayerJoin(type, args)
+def onPlayerJoin(args)
   args.getPlayer().sendMessage("rbexample says hi, " + args.getPlayer().getName())
 end
