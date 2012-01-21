@@ -1,3 +1,4 @@
+importPackage(Packages.org.bukkit.event.player);
 importPackage(Packages.org.bukkit.event);
 importPackage(Packages.org.bukkit);
 importPackage(Packages.java.util.logging);
@@ -15,12 +16,12 @@ SCRIPT_PDF = {
 
 
 function onEnable() {
-    helper.registerEvent(Event.Type.PLAYER_CHAT, Event.Priority.Lowest, "onChat");
+    helper.registerEvent(PlayerChatEvent, EventPriority.LOWEST, "onChat");
 }
 
 function onDisable() {}
 
-function onChat(type, ea)
+function onChat(ea)
 {
     if(ea.getMessage() == TRIGGER)
     {

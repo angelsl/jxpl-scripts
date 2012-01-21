@@ -1,4 +1,6 @@
 importPackage(org.bukkit.event);
+importPackage(org.bukkit.event.player);
+importPackage(org.bukkit.event.block);
 importPackage(org.bukkit);
 importPackage(java.util.logging);
 importPackage(java.lang);
@@ -12,19 +14,19 @@ VALID_ITEMS = [256, 257, 258, // iron spade/pick/axe
 
 SCRIPT_PDF = {
     "name" : "CreativeBreakTool",
-    "version" : "1",
+    "version" : "2",
     };
 
 
 function onLoad() {
-    helper.registerEvent(Event.Type.BLOCK_BREAK, Event.Priority.High, "onBlockBreak");
-    helper.registerEvent(Event.Type.PLAYER_INTERACT, Event.Priority.High, "onPlayerInteract");
+    helper.registerEvent(BlockBreakEvent, EventPriority.HIGH, "onBlockBreak");
+    helper.registerEvent(PlayerInteractEvent, EventPriority.HIGH, "onPlayerInteract");
 }
 
 function onEnable() {}
 function onDisable() {}
 
-function onBlockBreak(type, eventArgs)
+function onBlockBreak(eventArgs)
 {
     if(eventArgs.getPlayer().getGameMode().getValue() == 1 && VALID_ITEMS.indexOf(eventArgs.getPlayer().getItemInHand().getTypeId()) == -1) {
         eventArgs.setCancelled(true);
@@ -33,7 +35,7 @@ function onBlockBreak(type, eventArgs)
     }
 }
 
-function onPlayerInteract(type, eventArgs)
+function onPlayerInteract(eventArgs)
 {
     if(eventArgs.getAction() == Packages.org.bukkit.event.block.Action.LEFT_CLICK_BLOCK && eventArgs.getPlayer().getGameMode().getValue() == 1 && VALID_ITEMS.indexOf(eventArgs.getPlayer().getItemInHand().getTypeId()) == -1) {
         try {

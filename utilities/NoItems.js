@@ -1,4 +1,5 @@
 importPackage(org.bukkit.event);
+importPackage(org.bukkit.event.entity);
 importPackage(java.util.logging);
 importPackage(java.lang);
 
@@ -12,14 +13,14 @@ SCRIPT_PDF = {
 
 
 function onEnable() {
-    helper.registerEvent(Event.Type.ITEM_SPAWN, Event.Priority.Highest, "onItemSpawn");
+    helper.registerEvent(ItemSpawnEvent, EventPriority.HIGHEST, "onItemSpawn");
     for(var i = 0; i < WORLDS_AFFECTED.length; i++) 
         WORLDS_AFFECTED[i] = WORLDS_AFFECTED[i].toLowerCase();
 }
 
 function onDisable() {}
 
-function onItemSpawn(type, eventArgs)
+function onItemSpawn(eventArgs)
 {
     for(var i = 0; i < WORLDS_AFFECTED.length; i++) 
         if(WORLDS_AFFECTED[i] == eventArgs.getLocation().getWorld().getName().toLowerCase())
