@@ -1,4 +1,4 @@
-# [jxpl](https://github.com/angelsl/jxpl) scripts
+# [jxpl](https://github.com/angelsl/mc-jxpl) scripts
 
 ### This is a repository containing some scripts written for jxpl.
 
